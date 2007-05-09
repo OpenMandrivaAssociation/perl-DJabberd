@@ -2,7 +2,7 @@
 
 %define module  DJabberd
 %define name    perl-%{module}
-%define version 0.81
+%define version 0.83
 %define release %mkrel 1
 
 Name:           %{name}
@@ -18,8 +18,6 @@ Source2:        djabberd.conf
 Source3:        djabberd.sysconfig
 Source4:        djabberd.log.conf
 Source5:        djabberd.logrotate
-# taken from svn
-Patch1:          djabberd-pid_file.patch
 %if %{mdkversion} < 1010
 BuildRequires:  perl-devel
 %endif
@@ -58,7 +56,6 @@ depending on your needs.
 
 %prep
 %setup -q -n %{module}-%{version} 
-%patch1 -p0
 mkdir -p doc/DJabberd/Component/
 # do notprovides it, as it pulls a non packaged module
 #mv ./lib/DJabberd/Component/Example.pm doc/DJabberd/Component/
