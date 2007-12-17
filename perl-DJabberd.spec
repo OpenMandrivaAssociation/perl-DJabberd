@@ -29,7 +29,6 @@ BuildRequires: perl(XML::SAX)
 BuildRequires: perl(Net::DNS)
 BuildRequires: perl(Net::SSLeay) 
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 DJabberd is a high-performance, scalable, extensible Jabber/XMPP server 
