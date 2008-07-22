@@ -3,7 +3,7 @@
 %define module  DJabberd
 %define name    perl-%{module}
 %define version 0.83
-%define release %mkrel 1
+%define release %mkrel 3
 
 Name:           %{name}
 Version:        %{version}
