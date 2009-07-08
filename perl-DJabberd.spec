@@ -1,28 +1,26 @@
+%define upstream_name    DJabberd
+%define upstream_version 0.84
+
 # TODO generate
 
-%define module  DJabberd
-%define name    perl-%{module}
-%define version 0.83
-%define release %mkrel 4
+Name:           perl-%{upstream_name}
+Version:        %perl_convert_version %{upstream_version}
+Release:        %mkrel 1
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
 Summary:        XMPP flexible framework to create custom jabber server
-License:        GPL and Artistic
+License:        GPL+ and Artistic
 Group:          Development/Perl
-URL:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/DJabberd/%{module}-%{version}.tar.bz2
+URL:            http://search.cpan.org/dist/%{upstream_name}
+Source0         http://www.cpan.org/modules/by-module/DJabberd/%{upstream_name}-%{upstream_version}.tar.gz
 Source1:        djabberd.init
 Source2:        djabberd.conf
 Source3:        djabberd.sysconfig
 Source4:        djabberd.log.conf
 Source5:        djabberd.logrotate
-# fix from upstream svn
-Patch0:         djabberd.fix_5.10.diff
 %if %{mdkversion} < 1010
 BuildRequires:  perl-devel
 %endif
+
 BuildRequires: perl(Danga::Socket)
 BuildRequires: perl(Log::Log4perl)
 BuildRequires: perl(XML::LibXML)
@@ -31,7 +29,7 @@ BuildRequires: perl(XML::SAX)
 BuildRequires: perl(Net::DNS)
 BuildRequires: perl(Net::SSLeay)
 BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 DJabberd is a high-performance, scalable, extensible Jabber/XMPP server
@@ -57,8 +55,7 @@ In order to turn this into a real server, you need to install various modules,
 depending on your needs.
 
 %prep
-%setup -q -n %{module}-%{version}
-%patch -p1
+%setup -q -n %{upstream_name}-%{upstream_version}
 mkdir -p doc/DJabberd/Component/
 # do notprovides it, as it pulls a non packaged module
 #mv ./lib/DJabberd/Component/Example.pm doc/DJabberd/Component/
