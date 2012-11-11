@@ -1,0 +1,6 @@
+sources:
+  "djabberd.conf:"	f63f6624e353a8a26e7ed979881a1aeb171e442b
+  "djabberd.init:"	2c1583d3ef46b3d4afd2160a1cad560b03a3165f
+  "djabberd.log.conf:"	e133826555d09bb2724bf68137081f5b7b8af8df
+  "djabberd.logrotate:"	7b3c1c43cefbbb43ef36973b0055f3325d4e707d
+  "djabberd.sysconfig:"	63653334b394201286a95038de159ac59e27c9d1

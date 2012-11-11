@@ -1,0 +1,5 @@
+djabberd.conf
+djabberd.init
+djabberd.log.conf
+djabberd.logrotate
+djabberd.sysconfig
