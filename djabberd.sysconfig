@@ -1,0 +1,5 @@
+# options to pass to djabberd
+# --conffile=/etc/foo
+# --debug=1
+# see djabberd code source for more information
+OPTIONS=""

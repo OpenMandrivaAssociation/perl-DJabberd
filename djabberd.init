@@ -1,0 +1,77 @@
+#!/bin/sh
+#
+# djabberd Start/stop djabberd server
+#
+# chkconfig: 345 70 30
+# description: djabberd is an instant messaging server.  \
+#
+# processname: djabberd
+# config: /etc/djabberd/djabberd.conf 
+# pidfile: /var/run/djabberd.pid
+
+### BEGIN INIT INFO
+# Provides:
+# Required-Start: network
+# Required-Stop: network
+# Should-Start:
+# Default-Start: 5
+# Short-Description: Launches the djabberd instant messaging server.
+# Description: This startup script launches the djabberd instant messaging server.
+### END INIT INFO
+
+. /etc/rc.d/init.d/functions
+
+[ -r /etc/sysconfig/djabberd ] && . /etc/sysconfig/djabberd
+
+# to be able to add our own module 
+export PERL5LIB
+
+start() {
+        echo -n $"Starting djabberd: "
+        daemon djabberd -d $OPTIONS          
+        RETVAL=$?
+        [ $RETVAL -eq 0 ] && touch /var/lock/subsys/djabberd
+        echo
+        return $RETVAL
+}
+
+stop() {
+        # Stop daemons.
+        echo -n "Shutting down djabberd: "
+        killproc djabberd
+        RETVAL=$?
+        [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/djabberd
+        echo
+        return $RETVAL
+}
+
+restart() {
+        stop
+        start
+}
+
+# See how we were called.
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart)
+        restart
+        ;;
+  condrestart)
+        [ -f /var/lock/subsys/djabberd ] && restart || :
+        ;;
+  status)
+        #TODO
+        ;;
+  *)
+        echo "Usage: djabberd {start|stop|restart|reload|condrestart|status}"
+        exit 1
+esac
+
+exit $?
+
+

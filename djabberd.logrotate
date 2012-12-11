@@ -1,0 +1,6 @@
+/var/log/djabberd.log {
+    notifempty
+    missingok
+    sharedscripts
+    copytruncate
+}
