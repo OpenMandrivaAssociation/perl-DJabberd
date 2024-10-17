@@ -10,7 +10,7 @@ Release:	4
 Summary:	XMPP flexible framework to create custom jabber server
 License:	GPL+ and Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{upstream_name}
+URL:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/DJabberd/%{upstream_name}-%{upstream_version}.tar.gz
 Source1:	djabberd.init
 Source2:	djabberd.conf
