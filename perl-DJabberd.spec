@@ -18,6 +18,7 @@ Source3:	djabberd.sysconfig
 Source4:	djabberd.log.conf
 Source5:	djabberd.logrotate
 
+BuildRequires:	make
 BuildRequires:	perl-devel
 BuildRequires:	perl(Danga::Socket)
 BuildRequires:	perl(Log::Log4perl)
