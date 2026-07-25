@@ -1,17 +1,17 @@
 %define upstream_name    DJabberd
-%define upstream_version 0.84
+%define upstream_version 0.85
 
 # TODO generate
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	XMPP flexible framework to create custom jabber server
 License:	GPL+ and Artistic
 Group:		Development/Perl
-URL:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/DJabberd/%{upstream_name}-%{upstream_version}.tar.gz
+URL:		https://metacpan.org/dist/DJabberd
+Source0:	https://cpan.metacpan.org/authors/id/M/MA/MART/DJabberd-%{upstream_version}.tar.gz
 Source1:	djabberd.init
 Source2:	djabberd.conf
 Source3:	djabberd.sysconfig
