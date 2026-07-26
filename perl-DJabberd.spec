@@ -1,17 +1,15 @@
 %define upstream_name    DJabberd
-%define upstream_version 0.85
-
 # TODO generate
 
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	0.85
+Release:	2
 
 Summary:	XMPP flexible framework to create custom jabber server
 License:	GPL+ and Artistic
 Group:		Development/Perl
 URL:		https://metacpan.org/dist/DJabberd
-Source0:	https://cpan.metacpan.org/authors/id/M/MA/MART/DJabberd-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/M/MA/MART/DJabberd-%{version}.tar.gz
 Source1:	djabberd.init
 Source2:	djabberd.conf
 Source3:	djabberd.sysconfig
@@ -54,7 +52,7 @@ In order to turn this into a real server, you need to install various modules,
 depending on your needs.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 mkdir -p doc/DJabberd/Component/
 # do notprovides it, as it pulls a non packaged module
 #mv ./lib/DJabberd/Component/Example.pm doc/DJabberd/Component/
@@ -108,8 +106,7 @@ cp %{SOURCE5} %{buildroot}%{_sysconfdir}/logrotate.d/djabberd
 * Wed Jul 08 2009 Jérôme Quelin <jquelin@mandriva.org> 0.840.0-1mdv2010.0
 + Revision: 393669
 - update to 0.84
-- using %%perl_convert_version
-- removing patch djabberd.fix_5.10.diff merged upstream
+- using %0.85 removing patch djabberd.fix_5.10.diff merged upstream
 - fixed license field
 
 * Fri Sep 26 2008 Michael Scherer <misc@mandriva.org> 0.83-4mdv2009.0
